@@ -11,7 +11,7 @@ class PylintIgnorePaths:
         result, errors = self.original_expand_modules(*args, **kwargs)
 
         def keep_item(item):
-            if any(1 for path in self.paths if item['path'].startswith(path)):
+            if any(1 for path in self.paths if item["path"].startswith(path)):
                 return False
 
             return True
