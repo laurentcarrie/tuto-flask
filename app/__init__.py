@@ -1,7 +1,9 @@
+from flask_mail import Message
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
 from logging.handlers import RotatingFileHandler
 
 import logging
@@ -16,6 +18,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = "login"
+mail = Mail(app)
 
 
 # if not app.debug:
@@ -38,5 +41,19 @@ if True:
     app.logger.info("Microblog startup")
 
 logger = app.logger
+
+
+def send_msg(text):
+    msg = Message(
+        "hello flask",
+        sender="laurent.carrie@gmail.com",
+        recipients=["laurent.carrie.dummy@gmail.com"],
+    )
+    msg.body = text
+    msg.html = f"<h2>{text}</h2>"
+    mail.send(msg)
+
+
+app.sss = send_msg
 
 from app import routes, errors  # noqa: E402
