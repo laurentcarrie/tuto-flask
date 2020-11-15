@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-15 19:23+0100\n"
+"POT-Creation-Date: 2020-11-15 20:07+0100\n"
 "PO-Revision-Date: 2017-09-29 23:25-0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -23,13 +23,17 @@ msgstr ""
 msgid "Please log in to access this page"
 msgstr "Por favor ingrese para acceder a esta página."
 
-#: app/forms.py:10
+#: app/forms.py:11
 msgid "Username"
 msgstr "Nombre de usuario"
 
 #: app/templates/404.html:4
 msgid "Not Found"
 msgstr "Página No Encontrada"
+
+#: app/templates/_post.html:18
+msgid "Translate"
+msgstr ""
 
 #: app/templates/login.html:5
 msgid "Sign In"
