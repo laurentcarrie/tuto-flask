@@ -1,18 +1,31 @@
+from config import Config
 from datetime import datetime, timedelta
-from app import app, db, logger
 from app.models import User, Post
+from app import create_app, db
+
+from pathlib import Path
+
+import sys
+
+sys.path.append(str(Path(__file__).parent.parent))
+
+
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = "sqlite://"
 
 
 class Test_1:
     def setup_method(self):
-        logger.info("setup")
-        app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite://"
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
+        self.app_context.push()
         db.create_all()
 
     def teardown_method(self):
-        logger.info("setup")
         db.session.remove()
         db.drop_all()
+        self.app_context.pop()
 
     def test_password_hashing(self):
         u = User(username="susan")

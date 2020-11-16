@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-15 20:07+0100\n"
+"POT-Creation-Date: 2020-11-16 13:01+0100\n"
 "PO-Revision-Date: 2020-11-15 18:34+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,22 +18,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
-#: app/__init__.py:26
-msgid "Please log in to access this page"
+#: app/__init__.py:18
+msgid "Please log in to access this page."
 msgstr ""
 
-#: app/forms.py:11
+#: app/auth/forms.py:10 app/main/forms.py:10
 msgid "Username"
 msgstr "Utilisateur"
 
-#: app/templates/404.html:4
-msgid "Not Found"
-msgstr "Non trouvé"
+#: app/auth/routes.py:25
+msgid "Invalid username or password"
+msgstr ""
 
-#: app/templates/_post.html:18
+#: app/auth/routes.py:32 app/templates/auth/login.html:5
+msgid "Sign In"
+msgstr "Connexion"
+
+#: app/auth/routes.py:51
+msgid "Congratulations, you are now a registered user!"
+msgstr ""
+
+#: app/auth/routes.py:53
+msgid "Register"
+msgstr ""
+
+#: app/auth/routes.py:65
+msgid "Check your email for the instructions to reset your password"
+msgstr ""
+
+#: app/auth/routes.py:68
+msgid "Reset Password"
+msgstr ""
+
+#: app/auth/routes.py:83
+msgid "Your password has been reset."
+msgstr ""
+
+#: app/main/forms.py:11
+msgid "About me"
+msgstr ""
+
+#: app/main/forms.py:12 app/main/forms.py:31
+msgid "Submit"
+msgstr ""
+
+#: app/main/forms.py:22
+msgid "Please use a different username."
+msgstr ""
+
+#: app/main/forms.py:30
+msgid "Say something"
+msgstr ""
+
+#: app/templates/_post.html:21
 msgid "Translate"
 msgstr "Traduire-"
 
-#: app/templates/login.html:5
-msgid "Sign In"
-msgstr "Connexion"
+#: app/templates/errors/404.html:4
+msgid "Not Found"
+msgstr "Non trouvé"
+
+#~ msgid "Please log in to access this page"
+#~ msgstr ""

@@ -21,6 +21,7 @@ dnspython==2.0.0
 dominate==2.6.0
 email-validator==1.1.2
 filelock==3.0.12
+flake8==3.8.4
 Flask==1.1.2
 Flask-Babel==2.0.0
 Flask-Bootstrap==3.3.7.1
@@ -56,6 +57,7 @@ progress==1.5
 py==1.9.0
 pycodestyle==2.6.0
 pycparser==2.20
+pyflakes==2.2.0
 PyJWT==1.7.1
 pylint==2.6.0
 pylint-flask==0.6
