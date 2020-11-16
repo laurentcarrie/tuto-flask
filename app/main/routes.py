@@ -50,12 +50,12 @@ def user(username):
         page, current_app.config["POSTS_PER_PAGE"], False
     )
     next_url = (
-        url_for("user", username=username, page=posts.next_num)
+        url_for("main.user", username=username, page=posts.next_num)
         if posts.has_next
         else None
     )
     prev_url = (
-        url_for("user", username=username, page=posts.prev_num)
+        url_for("main.user", username=username, page=posts.prev_num)
         if posts.has_prev
         else None
     )
@@ -89,11 +89,11 @@ def follow(username):
             return redirect(url_for("main.index"))
         if user == current_user:
             flash("you cannot follow yourself !")
-            return redirect(url_for("user", username=username))
+            return redirect(url_for("main.user", username=username))
         current_user.follow(user)
         db.session.commit()
         flash(f"You are following {username}")
-        return redirect(url_for("main.index"))
+        return redirect(url_for("main.user", username=username))
     else:
         return redirect(url_for("main.index"))
 
@@ -109,11 +109,11 @@ def unfollow(username):
             return redirect(url_for("main.index"))
         if user == current_user:
             flash("You cannot unfollow yourself")
-            return redirect(url_for("user", username=username))
+            return redirect(url_for("main.user", username=username))
         current_user.unfollow(user)
         db.session.commit()
         flash(f"You are not following {username}")
-        return redirect(url_for("user", username=username))
+        return redirect(url_for("main.user", username=username))
     else:
         return redirect(url_for("main.index"))
 

@@ -1,4 +1,4 @@
-from app.auth import email, forms, routes
+from app.auth import routes
 from flask import Blueprint
 
-bp = Blueprint("auth_bp", __name__)
+bp = Blueprint("auth", __name__)

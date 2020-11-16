@@ -23,13 +23,13 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
-            return redirect(url_for("login"))
+            return redirect(url_for("auth.login"))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != "":
             next_page = url_for("main.index")
         return redirect(next_page)
-    return render_template("login.html", title="Sign In", form=form)
+    return render_template("auth/login.html", title="Sign In", form=form)
 
 
 @bp.route("/logout")
@@ -49,7 +49,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash("Congratulations, you are now a registered user !")
-        return redirect(url_for("login"))
+        return redirect(url_for("auth.login"))
     return render_template("register.html", title="Register", form=form)
 
 
@@ -79,7 +79,7 @@ def reset_password_request():
         if user:
             send_password_reset_email(user)
         flash("Check your email")
-        return redirect(url_for("login"))
+        return redirect(url_for("auth.login"))
     return render_template(
         "reset_password_request.html", title="Reset Password", form=form
     )
@@ -97,5 +97,5 @@ def reset_password(token):
         user.set_password(form.password.data)
         db.session.commit()
         flash("Your password has been reset")
-        return redirect(url_for("login"))
+        return redirect(url_for("auth.login"))
     return render_template("reset_password.html", form=form)
