@@ -3,7 +3,6 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
-from app import logger
 from flask_babel import _, lazy_gettext as _l
 
 
@@ -24,7 +23,6 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField("Register")
 
     def validate_username(self, username):
-        logger.info(f"validate {username}")
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError("Please use a different username.")
@@ -52,13 +50,6 @@ class EditProfileForm(FlaskForm):
 
 
 class EmptyForm(FlaskForm):
-    submit = SubmitField("Submit")
-
-
-class PostForm(FlaskForm):
-    post = TextAreaField(
-        "Say something", validators=[DataRequired(), Length(min=1, max=140)]
-    )
     submit = SubmitField("Submit")
 
 
