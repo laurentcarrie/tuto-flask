@@ -61,3 +61,15 @@ sudo supervisorctl reload
             expires 30d;
         }
 }
+
+
+
+deploiement
+-----------
+
+    (venv) $ git pull                              # download the new version
+    (venv) $ sudo supervisorctl stop microblog     # stop the current server
+    ... pip install -r requirements.txt
+    (venv) $ flask db upgrade                      # upgrade the database
+    (venv) $ flask translate compile               # upgrade the translations
+    (venv) $ sudo supervisorctl start microblog    # start a new server
