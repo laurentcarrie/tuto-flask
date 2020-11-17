@@ -88,6 +88,8 @@ def create_app(config_class=Config):
         app.logger.setLevel(logging.INFO)
         app.logger.info("Microblog startup")
 
+    app.logger.info(f"MAIL_SERVER : {app.config['MAIL_SERVER']}")
+
     return app
 
 

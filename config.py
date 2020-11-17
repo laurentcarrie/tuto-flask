@@ -23,7 +23,7 @@ class Config:
     MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS") is not None
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    ADMINS = ["your-email@example.com"]
+    ADMINS = [os.environ.get("ADMINS")]
     LANGUAGES = ["en", "fr", "de"]
     POSTS_PER_PAGE = os.environ.get("POSTS_PER_PAGE") or 25
 
