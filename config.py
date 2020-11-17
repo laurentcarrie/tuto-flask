@@ -9,9 +9,13 @@ load_dotenv(str(basedir / ".env"))
 
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY") or "you-will-never-guess"
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or "sqlite:///" + str(
-        basedir / "app.db"
-    )
+
+    DATABASE_HOST = os.environ.get("DATABASE_HOST")
+    DATABASE_USER = os.environ.get("DATABASE_USER")
+    DATABASE_DB = os.environ.get("DATABASE_DB")
+    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+    SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}/{DATABASE_DB}"
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     MAIL_SERVER = os.environ.get("MAIL_SERVER")
