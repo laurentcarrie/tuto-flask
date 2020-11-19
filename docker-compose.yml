@@ -1,0 +1,39 @@
+version: "3"
+services:
+
+  yyy:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_PASSWORD=lolo"
+      - "PGDATA=/var/lib/postgresql/data/pgdata"
+    volumes:
+      - "/home/laurent/xxx:/var/lib/postgresql/data"
+
+
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+
+
+
+  microblog:
+    image: lc92/microblog:latest
+    ports:
+      - "8000:5000"
+    depends_on:
+      - yyy
+      - elasticsearch
+    environment:
+      - "DATABASE_HOST=xxx"
+      - "DATABASE_PASSWORD=lolo"
+      - "ELASTICSEARCH_HOST=zzz"
+    links:
+      - "yyy:xxx"
+      - "elasticsearch:zzz"

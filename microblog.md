@@ -75,8 +75,6 @@ deploiement
     (venv) $ sudo supervisorctl start microblog    # start a new server
 
 
-docker
-------
     sudo apt-get update
     sudo apt-get install \
     apt-transport-https \
@@ -90,3 +88,9 @@ docker
        $(lsb_release -cs) \
        stable"
     sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+
+
+docker
+------
+    sudo docker build -t microblog:latest .

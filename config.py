@@ -27,4 +27,5 @@ class Config:
     LANGUAGES = ["en", "fr", "de"]
     POSTS_PER_PAGE = os.environ.get("POSTS_PER_PAGE") or 25
 
-    ELASTICSEARCH_URL = os.environ.get("ELASTICSEARCH_URL")
+    ELASTICSEARCH_HOST = os.environ.get("ELASTICSEARCH_HOST")
+    ELASTICSEARCH_URL = f"http://{ELASTICSEARCH_HOST}:9200"
