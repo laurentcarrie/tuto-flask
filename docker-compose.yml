@@ -10,6 +10,7 @@ services:
       - "PGDATA=/var/lib/postgresql/data/pgdata"
     volumes:
       - "/home/laurent/xxx:/var/lib/postgresql/data"
+    restart: always
 
 
 
@@ -20,6 +21,7 @@ services:
       - "9300:9300"
     environment:
       - "discovery.type=single-node"
+    restart: always
 
 
 
@@ -37,3 +39,4 @@ services:
     links:
       - "yyy:xxx"
       - "elasticsearch:zzz"
+    restart: always
