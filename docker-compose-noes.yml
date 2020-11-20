@@ -12,6 +12,14 @@ services:
       - "/home/laurent/xxx:/var/lib/postgresql/data"
     restart: always
 
+  redis:
+    image: redis:3-alpine
+    ports:
+      - "6379:6379"
+    environment:
+      - "discovery.type=single-node"
+    restart: always
+
   worker:
     image: lc92/microblog:latest
     depends_on:
