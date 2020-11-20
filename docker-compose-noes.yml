@@ -28,7 +28,6 @@ services:
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
-      - "NO_ELASTICSEARCH_HOST=1"
     links:
       - "yyy:xxx"
       - "redis:redis-server"
@@ -46,7 +45,6 @@ services:
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
-      - "NO_ELASTICSEARCH_HOST=1"
       - "REDIS_URL=redis://redis-server:6379"
     links:
       - "yyy:xxx"
