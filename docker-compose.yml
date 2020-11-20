@@ -12,8 +12,6 @@ services:
       - "/home/laurent/xxx:/var/lib/postgresql/data"
     restart: always
 
-
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.2
     ports:
@@ -24,21 +22,17 @@ services:
     restart: always
 
   redis:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.6.2
+    image: redis:3-alpine
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "6379:6379"
     environment:
       - "discovery.type=single-node"
     restart: always
 
-
-
-  microblog:
+  worker:
     image: lc92/microblog:latest
-    ports:
-      - "8000:5000"
     depends_on:
+      - redis
       - yyy
       - elasticsearch
     environment:
@@ -47,5 +41,28 @@ services:
       - "ELASTICSEARCH_HOST=zzz"
     links:
       - "yyy:xxx"
+      - "redis:redis-server"
       - "elasticsearch:zzz"
     restart: always
+    command: venv/bin/rq worker -u redis://redis-server:6379/0 microblog-tasks
+
+  microblog:
+    image: lc92/microblog:latest
+    ports:
+      - "8000:5000"
+    depends_on:
+      - redis
+      - worker
+      - yyy
+      - elasticsearch
+    environment:
+      - "DATABASE_HOST=xxx"
+      - "DATABASE_PASSWORD=lolo"
+      - "ELASTICSEARCH_HOST=zzz"
+      - "REDIS_URL=redis://redis-server:6379"
+    links:
+      - "yyy:xxx"
+      - "redis:redis-server"
+      - "elasticsearch:zzz"
+    restart: always
+    command: bash boot.sh

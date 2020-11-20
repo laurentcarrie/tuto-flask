@@ -25,12 +25,32 @@ sudo docker run \
   --rm \
   --link some-postgres:dbserver \
   --link elasticsearch:elasticsearch \
+  --link redis:redis-server \
   -e DATABASE_HOST=dbserver \
   -e DATABASE_PASSWORD=lolo \
-  -e ELASTICSEARCH_URL=http://elasticsearch:9200 \
+  -e ELASTICSEARCH_HOST=elasticsearch \
   -e REDIS_URL=redis://redis-server:6379/0 \
   lc92/microblog:latest
 }
+
+
+function rq() {
+sudo docker run \
+  --name rq-worker \
+  -d \
+  --rm \
+  --link some-postgres:dbserver \
+  --link elasticsearch:elasticsearch \
+  --link redis:redis-server \
+  -e DATABASE_HOST=dbserver \
+  -e DATABASE_PASSWORD=lolo \
+  -e ELASTICSEARCH_HOST=elasticsearch \
+  -e REDIS_URL=redis://redis-server:6379/0 \
+  --entrypoint venv/bin/rq \
+  lc92/microblog:latest \
+  worker -u redis://redis-server:6379/0 microblog-tasks
+}
+
 
 function build() {
   sudo docker build -t lc92/microblog:latest .
@@ -63,16 +83,17 @@ function start() {
   redis
   postgres
   es
+  rq
   microblog
 }
 
 function stop() {
   sudo docker stop \
-    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1  \
-    microblog some-postgres elasticsearch redis || true
+    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1 tuto-flask_redis_1 tuto-flask_worker_1 \
+    microblog some-postgres elasticsearch redis rq-worker || true
   sudo docker rm \
-    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1 \
-    microblog some-postgres elasticsearch redis
+    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1 tuto-flask_redis_1 tuto-flask_worker_1 \
+    lc92/microblog some-postgres elasticsearch redis rq-worker
 
 }
 
@@ -107,6 +128,9 @@ stop)
   ;;
 redis)
   redis
+  ;;
+rq)
+  rq
   ;;
 default)
 	echo "no default"
