@@ -1,0 +1,49 @@
+version: "3"
+services:
+
+  yyy:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_PASSWORD=lolo"
+      - "PGDATA=/var/lib/postgresql/data/pgdata"
+    volumes:
+      - "/home/laurent/xxx:/var/lib/postgresql/data"
+    restart: always
+
+  worker:
+    image: lc92/microblog:latest
+    depends_on:
+      - redis
+      - yyy
+      - elasticsearch
+    environment:
+      - "DATABASE_HOST=xxx"
+      - "DATABASE_PASSWORD=lolo"
+      - "NO_ELASTICSEARCH_HOST=1"
+    links:
+      - "yyy:xxx"
+      - "redis:redis-server"
+    restart: always
+    command: venv/bin/rq worker -u redis://redis-server:6379/0 microblog-tasks
+
+  microblog:
+    image: lc92/microblog:latest
+    ports:
+      - "8000:5000"
+    depends_on:
+      - redis
+      - worker
+      - yyy
+      - elasticsearch
+    environment:
+      - "DATABASE_HOST=xxx"
+      - "DATABASE_PASSWORD=lolo"
+      - "NO_ELASTICSEARCH_HOST=1"
+      - "REDIS_URL=redis://redis-server:6379"
+    links:
+      - "yyy:xxx"
+      - "redis:redis-server"
+    restart: always
+    command: bash boot.sh
