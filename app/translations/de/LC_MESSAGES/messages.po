@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-16 13:01+0100\n"
+"POT-Creation-Date: 2020-11-20 11:45+0100\n"
 "PO-Revision-Date: 2020-11-15 19:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
-#: app/__init__.py:18
+#: app/__init__.py:19
 msgid "Please log in to access this page."
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "About me"
 msgstr ""
 
-#: app/main/forms.py:12 app/main/forms.py:31
+#: app/main/forms.py:12 app/main/forms.py:31 app/main/forms.py:46
 msgid "Submit"
 msgstr ""
 
@@ -70,8 +70,120 @@ msgstr ""
 msgid "Say something"
 msgstr ""
 
-#: app/templates/_post.html:21
+#: app/main/forms.py:35 app/main/routes.py:162
+msgid "Search"
+msgstr ""
+
+#: app/main/forms.py:45
+msgid "Message"
+msgstr ""
+
+#: app/main/routes.py:177
+msgid "Your changes have been saved."
+msgstr ""
+
+#: app/main/routes.py:182
+msgid "Edit Profile"
+msgstr ""
+
+#: app/main/routes.py:201
+msgid "Your message has been sent."
+msgstr ""
+
+#: app/main/routes.py:203
+msgid "Send Message"
+msgstr ""
+
+#: app/templates/_post.html:20
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr ""
+
+#: app/templates/_post.html:31
 msgid "Translate"
+msgstr ""
+
+#: app/templates/base.html:4
+msgid "Welcome to Microblog"
+msgstr ""
+
+#: app/templates/base.html:21
+msgid "Home"
+msgstr ""
+
+#: app/templates/base.html:22
+msgid "Explore"
+msgstr ""
+
+#: app/templates/base.html:33
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:35
+msgid "Profile"
+msgstr ""
+
+#: app/templates/base.html:36 app/templates/messages.html:4
+msgid "Messages"
+msgstr ""
+
+#: app/templates/base.html:37
+msgid "Logout"
+msgstr ""
+
+#: app/templates/base.html:74
+msgid "Error: Could not contact server."
+msgstr ""
+
+#: app/templates/messages.html:12
+msgid "Newer messages"
+msgstr ""
+
+#: app/templates/messages.html:17
+msgid "Older messages"
+msgstr ""
+
+#: app/templates/search.html:4
+msgid "Search Results"
+msgstr ""
+
+#: app/templates/search.html:16
+msgid "Previous results"
+msgstr ""
+
+#: app/templates/search.html:21
+msgid "Next results"
+msgstr ""
+
+#: app/templates/send_message.html:6
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr ""
+
+#: app/templates/user.html:8
+msgid "Send private message"
+msgstr ""
+
+#: app/templates/user_popup.html:9
+msgid "Last seen on"
+msgstr ""
+
+#: app/templates/user_popup.html:11
+#, python-format
+msgid "%(count)d followers"
+msgstr ""
+
+#: app/templates/user_popup.html:11
+#, python-format
+msgid "%(count)d following"
+msgstr ""
+
+#: app/templates/user_popup.html:17
+msgid "Follow"
+msgstr ""
+
+#: app/templates/user_popup.html:24
+msgid "Unfollow"
 msgstr ""
 
 #: app/templates/errors/404.html:4
