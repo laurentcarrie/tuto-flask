@@ -28,7 +28,10 @@ class Config:
     POSTS_PER_PAGE = os.environ.get("POSTS_PER_PAGE") or 25
 
     ELASTICSEARCH_HOST = os.environ.get("ELASTICSEARCH_HOST")
-    ELASTICSEARCH_URL = f"http://{ELASTICSEARCH_HOST}:9200"
+    if ELASTICSEARCH_HOST is None:
+        ELASTICSEARCH_URL = None
+    else:
+        ELASTICSEARCH_URL = f"http://{ELASTICSEARCH_HOST}:9200"
     HAS_ELASTICSEARCH = not os.environ.get("NO_ELASTICSEARCH") is None
 
     REDIS_URL = os.environ.get('REDIS_URL')
