@@ -1,5 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request, current_app, g
 from flask_login import current_user, login_required
+from flask import jsonify
 from app import db
 from app.models import User, Message, Notification
 from app.main.forms import PostForm, EmptyForm, EditProfileForm, MessageForm
@@ -9,7 +10,6 @@ from datetime import datetime
 from guess_language import guess_language
 from app.main import bp
 from app.main.forms import SearchForm
-import jsonify
 
 
 @bp.route("/", methods=["GET", "POST"])
