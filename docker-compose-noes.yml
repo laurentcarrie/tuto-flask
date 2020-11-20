@@ -25,7 +25,6 @@ services:
     depends_on:
       - redis
       - yyy
-      - elasticsearch
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
