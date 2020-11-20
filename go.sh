@@ -28,6 +28,7 @@ sudo docker run \
   -e DATABASE_HOST=dbserver \
   -e DATABASE_PASSWORD=lolo \
   -e ELASTICSEARCH_URL=http://elasticsearch:9200 \
+  -e REDIS_URL=redis://redis-server:6379/0 \
   lc92/microblog:latest
 }
 
@@ -54,13 +55,24 @@ function psql2() {
 }
 
 
+function redis() {
+  sudo docker run --name redis -d -p 6379:6379 redis:3-alpine
+}
+
+function start() {
+  redis
+  postgres
+  es
+  microblog
+}
+
 function stop() {
   sudo docker stop \
-    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1 \
-    microblog some-postgres elasticsearch || true
+    tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1  \
+    microblog some-postgres elasticsearch redis || true
   sudo docker rm \
     tuto-flask_microblog_1 tuto-flask_yyy_1 tuto-flask_elasticsearch_1 \
-    microblog some-postgres elasticsearch
+    microblog some-postgres elasticsearch redis
 
 }
 
@@ -87,8 +99,14 @@ build)
 push)
   push
   ;;
+start)
+  start
+  ;;
 stop)
   stop
+  ;;
+redis)
+  redis
   ;;
 default)
 	echo "no default"

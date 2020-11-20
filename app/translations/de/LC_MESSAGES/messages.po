@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-11-20 11:45+0100\n"
+"POT-Creation-Date: 2020-11-20 16:12+0100\n"
 "PO-Revision-Date: 2020-11-15 19:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.0\n"
 
-#: app/__init__.py:19
+#: app/__init__.py:21
 msgid "Please log in to access this page."
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "About me"
 msgstr ""
 
-#: app/main/forms.py:12 app/main/forms.py:31 app/main/forms.py:46
+#: app/main/forms.py:12 app/main/forms.py:31 app/main/forms.py:48
 msgid "Submit"
 msgstr ""
 
@@ -70,28 +70,36 @@ msgstr ""
 msgid "Say something"
 msgstr ""
 
-#: app/main/forms.py:35 app/main/routes.py:162
+#: app/main/forms.py:35 app/main/routes.py:163
 msgid "Search"
 msgstr ""
 
-#: app/main/forms.py:45
+#: app/main/forms.py:46
 msgid "Message"
 msgstr ""
 
-#: app/main/routes.py:177
+#: app/main/routes.py:178
 msgid "Your changes have been saved."
 msgstr ""
 
-#: app/main/routes.py:182
+#: app/main/routes.py:183
 msgid "Edit Profile"
 msgstr ""
 
-#: app/main/routes.py:201
+#: app/main/routes.py:204
 msgid "Your message has been sent."
 msgstr ""
 
-#: app/main/routes.py:203
+#: app/main/routes.py:206
 msgid "Send Message"
+msgstr ""
+
+#: app/main/routes.py:244
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: app/main/routes.py:246
+msgid "Exporting posts..."
 msgstr ""
 
 #: app/templates/_post.html:20
@@ -103,43 +111,15 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
-#: app/templates/base.html:4
-msgid "Welcome to Microblog"
-msgstr ""
-
-#: app/templates/base.html:21
-msgid "Home"
-msgstr ""
-
-#: app/templates/base.html:22
-msgid "Explore"
-msgstr ""
-
-#: app/templates/base.html:33
-msgid "Login"
-msgstr ""
-
-#: app/templates/base.html:35
-msgid "Profile"
-msgstr ""
-
-#: app/templates/base.html:36 app/templates/messages.html:4
+#: app/templates/message.html:4
 msgid "Messages"
 msgstr ""
 
-#: app/templates/base.html:37
-msgid "Logout"
-msgstr ""
-
-#: app/templates/base.html:74
-msgid "Error: Could not contact server."
-msgstr ""
-
-#: app/templates/messages.html:12
+#: app/templates/message.html:12
 msgid "Newer messages"
 msgstr ""
 
-#: app/templates/messages.html:17
+#: app/templates/message.html:17
 msgid "Older messages"
 msgstr ""
 
@@ -158,10 +138,6 @@ msgstr ""
 #: app/templates/send_message.html:6
 #, python-format
 msgid "Send Message to %(recipient)s"
-msgstr ""
-
-#: app/templates/user.html:8
-msgid "Send private message"
 msgstr ""
 
 #: app/templates/user_popup.html:9
@@ -191,4 +167,28 @@ msgid "Not Found"
 msgstr ""
 
 #~ msgid "Please log in to access this page"
+#~ msgstr ""
+
+#~ msgid "Welcome to Microblog"
+#~ msgstr ""
+
+#~ msgid "Home"
+#~ msgstr ""
+
+#~ msgid "Explore"
+#~ msgstr ""
+
+#~ msgid "Login"
+#~ msgstr ""
+
+#~ msgid "Profile"
+#~ msgstr ""
+
+#~ msgid "Logout"
+#~ msgstr ""
+
+#~ msgid "Error: Could not contact server."
+#~ msgstr ""
+
+#~ msgid "Send private message"
 #~ msgstr ""

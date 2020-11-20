@@ -29,3 +29,5 @@ class Config:
 
     ELASTICSEARCH_HOST = os.environ.get("ELASTICSEARCH_HOST")
     ELASTICSEARCH_URL = f"http://{ELASTICSEARCH_HOST}:9200"
+
+    REDIS_URL = os.environ.get('REDIS_URL')
