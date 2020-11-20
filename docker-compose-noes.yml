@@ -43,7 +43,6 @@ services:
       - redis
       - worker
       - yyy
-      - elasticsearch
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
