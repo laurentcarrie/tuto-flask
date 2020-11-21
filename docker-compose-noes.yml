@@ -27,19 +27,19 @@ services:
       - redis
       - yyy
     environment:
-      - "DATABASE_HOST=xxx"
-      - "DATABASE_PASSWORD=lolo"
-      - "DATABASE_USER=postgres"
-      - "DATABASE_DB=dbtest"
-      - "REDIS_URL=redis://redis-server:6379"
-      - "MAIL_PORT=587"
-      - "MAIL_SERVER=smtp.googlemail.com"
-      - "MAIL_USERNAME=${MAIL_USERNAME}"
-      - "MAIL_USE_TLS=1"
-      - "MAIL_PASSWORD=${MAIL_PASSWORD}"
-      - "ADMINS=laurent.carrie@gmail.com"
-      - "POSTS_PER_PAGE=20"
-      - "REDIS_URL=redis://redis-server:6379/0"
+      - DATABASE_HOST=xxx
+      - DATABASE_PASSWORD=lolo
+      - DATABASE_USER=postgres
+      - DATABASE_DB=dbtest
+      - REDIS_URL=redis://redis-server:6379
+      - MAIL_PORT=587
+      - MAIL_SERVER=smtp.googlemail.com
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_USE_TLS=1
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - ADMINS=laurent.carrie@gmail.com
+      - POSTS_PER_PAGE=20
+      - REDIS_URL=redis://redis-server:6379/0
     links:
       - "yyy:xxx"
       - "redis:redis-server"
@@ -55,19 +55,19 @@ services:
       - worker
       - yyy
     environment:
-      - "DATABASE_HOST=xxx"
-      - "DATABASE_PASSWORD=lolo"
-      - "DATABASE_USER=postgres"
-      - "DATABASE_DB=dbtest"
-      - "REDIS_URL=redis://redis-server:6379"
-      - "MAIL_PORT=587"
-      - "MAIL_SERVER=smtp.googlemail.com"
-      - "MAIL_USERNAME=${MAIL_USERNAME}"
-      - "MAIL_USE_TLS=1"
-      - "MAIL_PASSWORD=${MAIL_PASSWORD}"
-      - "ADMINS=laurent.carrie@gmail.com"
-      - "POSTS_PER_PAGE=20"
-      - "REDIS_URL=redis://redis-server:6379/0"
+      - DATABASE_HOST=xxx
+      - DATABASE_PASSWORD=lolo
+      - DATABASE_USER=postgres
+      - DATABASE_DB=dbtest
+      - REDIS_URL=redis://redis-server:6379
+      - MAIL_PORT=587
+      - MAIL_SERVER=smtp.googlemail.com
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_USE_TLS=1
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - ADMINS=laurent.carrie@gmail.com
+      - POSTS_PER_PAGE=20
+      - REDIS_URL=redis://redis-server:6379/0
 
     links:
       - "yyy:xxx"
