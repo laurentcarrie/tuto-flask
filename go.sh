@@ -73,7 +73,7 @@ function psql() {
 }
 
 function psql2() {
-  sudo docker exec -it tuto-flask_yyy_1 psql -U postgres dbtest
+  sudo docker exec -it tuto-flask_yyy_1 psql -U postgres dbtest $*
 }
 
 
