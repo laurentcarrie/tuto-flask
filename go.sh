@@ -20,7 +20,6 @@ function microblog() {
 sudo docker stop lc92/microblog || true
 sudo docker run \
   --name microblog \
-  -d \
   -p 8000:5000 \
   --rm \
   --link some-postgres:dbserver \
@@ -28,9 +27,12 @@ sudo docker run \
   --link redis:redis-server \
   -e DATABASE_HOST=dbserver \
   -e DATABASE_PASSWORD=lolo \
+  -e DATABASE_USER=postgres \
+  -e DATABASE_DB=dbtest \
   -e ELASTICSEARCH_HOST=elasticsearch \
   -e REDIS_URL=redis://redis-server:6379/0 \
-  lc92/microblog:latest
+  lc92/microblog:latest \
+  bash boot.sh
 }
 
 
