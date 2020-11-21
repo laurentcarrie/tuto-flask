@@ -11,9 +11,18 @@ class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY") or "you-will-never-guess"
 
     DATABASE_HOST = os.environ.get("DATABASE_HOST")
+    DATABASE_HOST = os.environ.get("DATABASE_HOST")
+    if DATABASE_HOST is None:
+        raise Exception("DATABASE_HOST not defined")
     DATABASE_USER = os.environ.get("DATABASE_USER")
+    if DATABASE_USER is None:
+        raise Exception("DATABASE_USER not defined")
     DATABASE_DB = os.environ.get("DATABASE_DB")
+    if DATABASE_DB is None:
+        raise Exception("DATABASE_DB not defined")
     DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+    if DATABASE_PASSWORD is None:
+        raise Exception("DATABASE_PASSWORD not defined")
     SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}/{DATABASE_DB}"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False

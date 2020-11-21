@@ -28,6 +28,8 @@ services:
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
+      - "DATABASE_USER=postgres"
+      - "DATABASE_DB=dbtest"
     links:
       - "yyy:xxx"
       - "redis:redis-server"
@@ -45,6 +47,8 @@ services:
     environment:
       - "DATABASE_HOST=xxx"
       - "DATABASE_PASSWORD=lolo"
+      - "DATABASE_USER=postgres"
+      - "DATABASE_DB=dbtest"
       - "REDIS_URL=redis://redis-server:6379"
     links:
       - "yyy:xxx"

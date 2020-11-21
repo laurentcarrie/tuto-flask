@@ -17,7 +17,7 @@ RUN venv/bin/pip install gunicorn
 
 COPY app app
 COPY migrations migrations
-COPY microblog.py config.py boot.sh .env ./
+COPY microblog.py config.py boot.sh ./
 RUN chmod +x boot.sh
 
 ENV FLASK_APP microblog.py

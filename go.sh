@@ -5,7 +5,7 @@ set -x
 
 function postgres() {
   sudo docker stop postgres || true
-sudo docker run -d \
+  sudo docker run -d \
     --name some-postgres \
     --rm \
     -e POSTGRES_PASSWORD=lolo \
@@ -82,6 +82,7 @@ function redis() {
 }
 
 function start() {
+  stop || true
   redis
   postgres
   es
