@@ -3,6 +3,7 @@ from app.models import User
 from app.api.errors import error_response
 
 basic_auth = HTTPBasicAuth()
+token_auth = HTTPTokenAuth()
 
 
 @basic_auth.verify_password
@@ -15,9 +16,6 @@ def verify_password(username, password):
 @basic_auth.error_handler
 def basic_auth_error(status):
     return error_response(status)
-
-
-token_auth = HTTPTokenAuth()
 
 
 @token_auth.verify_token
