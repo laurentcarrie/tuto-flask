@@ -1,9 +1,9 @@
 from flask import jsonify, request, url_for, abort
-from app.api import bp
 from app import db
 from app.models import User
-from app.api.errors import bad_request
+from app.api import bp
 from app.api.auth import token_auth
+from app.api.errors import bad_request
 
 
 @bp.route('/users/<int:id>', methods=['GET'])
@@ -58,7 +58,7 @@ def create_user():
     db.session.commit()
     response = jsonify(user.to_dict())
     response.status_code = 201
-    response.headers['location'] = url_for('api.get_user', id=user.id)
+    response.headers['Location'] = url_for('api.get_user', id=user.id)
     return response
 
 

@@ -94,3 +94,11 @@ deploiement
 docker
 ------
     sudo docker build -t microblog:latest .
+
+
+auth
+----
+http --auth <username>:<password> POST http://localhost:5000/api/tokens
+
+http GET http://localhost:5000/api/users/1 \
+    "Authorization:Bearer pC1Nu9wwyNt8VCj1trWilFdFI276AcbS"
